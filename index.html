@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Awesome Airlines</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="booking-box">
+        <div class="radio-btns">
+            <input type="radio" class="btn" name="check" checked="checked"><span>Roundtrip</span>
+            <input type="radio" class="btn" name="check"><span>One-Way</span>
+        </div>
+
+        <div class="booking-form">
+            <label>From</label>
+            <input type="text" class="form-control" placeholder="City or Airport Name">
+            <label>Destination</label>
+            <input type="text" class="form-control" placeholder="City or Airport Name">
+
+            <div class="input-grp">
+                <label>Departure Date</label>
+                <input type="date" class="form-control select-date">
+            </div>
+
+            <div class="input-grp">
+                <label>Return Date</label>
+                <input type="date" class="form-control select-date">
+            </div>
+
+            <div class="input-grp">
+                <label>Adults (11+ yrs)</label>
+                <input type="number" class="form-control" value="1" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Children (2+ yrs)</label>
+                <input type="number" class="form-control" value="0" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Flight Class</label>
+                <select class="custom-select">
+                    <option value="1">Economy</option>
+                    <option value="2">Business</option>
+                </select>
+            </div>
+
+            <div class="input-grp">
+                <button type="button" class="btn btn-primary flight">Review Flight</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
