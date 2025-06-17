@@ -1,30 +1,25 @@
-body
-{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(images/background.jpg);
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/background.jpg);
     background-size: cover;
     background-position: center;
 }
 
-.booking-box
-{
+.booking-box {
     max-width: 350px;
     border: 1px solid gray;
     margin: 10% auto 0;
 }
 
-.radio-btns
-{
+.radio-btns {
     margin: 0 20px;
 }
 
-.radio-btns .btn
-{
+.radio-btns .btn {
     margin: 20px 10px 20px 0;
     box-shadow: none;
 }
 
-.radio-btns .btn::after
-{
+.radio-btns .btn::after {
     content: '';
     height: 15px;
     width: 15px;
@@ -38,46 +33,39 @@ body
     border-radius: 50%;
 }
 
-.radio-btns .btn:checked::after
-{
+.radio-btns .btn:checked::after {
     content: '';
     background-color: black;
     transition: 0.5s;
 }
 
-.radio-btns span
-{
+.radio-btns span {
     color: white;
     margin-right: 5px;
     font-size: 12px;
 }
 
-.booking-form
-{
+.booking-form {
     padding: 0 20px 20px;
 }
 
-.booking-form label
-{
+.booking-form label {
     margin-bottom: 5px;
     margin-top: 10px;
     font-size: 12px;
     color: white;
 }
 
-input::placeholder
-{
+input::placeholder {
     color: white !important;
 }
 
-.input-grp
-{
+.input-grp {
     width: 151px;
     display: inline-block;
 }
 
-.form-control
-{
+.form-control {
     font-size: 12px !important;
     border-radius: 0 !important;
     color: white !important;
@@ -85,19 +73,17 @@ input::placeholder
     box-shadow: none !important;
 }
 
-.select-date::-webkit-inner-spin-button, .select-date::-webkit-outer-spin-button
-{
+.select-date::-webkit-inner-spin-button,
+.select-date::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.select-date::-webkit-calender-picker-indicator
-{
+.select-date::-webkit-calender-picker-indicator {
     background: transparent !important;
 }
 
-.custom-select
-{
+.custom-select {
     color: white !important;
     font-size: 12px !important;
     border: 1px solid gray !important;
@@ -106,13 +92,11 @@ input::placeholder
     background: transparent !important;
 }
 
-.custom-select option
-{
+.custom-select option {
     color: #333;
 }
 
-.flight
-{
+.flight {
     width: 100%;
     padding: 9px 0;
     font-size: 12px;
@@ -122,8 +106,7 @@ input::placeholder
     border-radius: 0 !important;
 }
 
-.flight:hover
-{
+.flight:hover {
     background: #fff !important;
     color: black !important;
     transition: 0.5s;

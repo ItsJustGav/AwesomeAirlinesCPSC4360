@@ -1,0 +1,23 @@
+<ul id="historyList"></ul>
+
+<script>
+    firebase.auth().onAuthStateChanged(user => {
+        if (!user) return window.location.href = "login.html";
+
+        const db = firebase.firestore();
+        const historyList = document.getElementById("historyList");
+
+        db.collection("users")
+            .doc(user.uid)
+            .collection("history")
+            .get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const item = document.createElement("li");
+                    item.textContent = `${data.type}: ${data.from} → ${data.to} on ${new Date(data.date).toLocaleString()}`;
+                    historyList.appendChild(item);
+                });
+            });
+    });
+</script>
