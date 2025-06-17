@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TravSync | Bus Booking</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="booking-box">
+        <div class="radio-btns">
+            <input type="radio" class="btn" name="check" checked="checked"><span>One-Way</span>
+            <input type="radio" class="btn" name="check"><span>Roundtrip</span>
+        </div>
+
+        <div class="booking-form">
+            <label>From</label>
+            <input type="text" class="form-control" placeholder="City or Bus Terminal">
+            
+            <label>Destination</label>
+            <input type="text" class="form-control" placeholder="City or Bus Terminal">
+
+            <div class="input-grp">
+                <label>Departure Date</label>
+                <input type="date" class="form-control select-date">
+            </div>
+
+            <div class="input-grp">
+                <label>Return Date</label>
+                <input type="date" class="form-control select-date">
+            </div>
+
+            <div class="input-grp">
+                <label>Adults (12+ yrs)</label>
+                <input type="number" class="form-control" value="1" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Children (2-11 yrs)</label>
+                <input type="number" class="form-control" value="0" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Seat Preference</label>
+                <select class="custom-select">
+                    <option value="noPref">No Preference</option>
+                    <option value="window">Window</option>
+                    <option value="aisle">Aisle</option>
+                </select>
+            </div>
+
+            <div class="input-grp">
+                <button type="button" class="btn btn-primary flight">Search Bus Trips</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bus.js"></script>
+</body>
+</html>

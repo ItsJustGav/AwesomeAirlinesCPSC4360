@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TravSync | Train Booking</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="booking-box">
+        <div class="radio-btns">
+            <input type="radio" class="btn" name="tripType" checked="checked"><span>One-Way</span>
+            <input type="radio" class="btn" name="tripType"><span>Roundtrip</span>
+        </div>
+
+        <div class="booking-form">
+            <label>From</label>
+            <input type="text" class="form-control" placeholder="City or Train Station">
+            
+            <label>Destination</label>
+            <input type="text" class="form-control" placeholder="City or Train Station">
+
+            <div class="input-grp">
+                <label>Departure Date</label>
+                <input type="date" class="form-control select-date" id="departDate">
+            </div>
+
+            <div class="input-grp">
+                <label>Return Date</label>
+                <input type="date" class="form-control select-date" id="returnDate">
+            </div>
+
+            <div class="input-grp">
+                <label>Adults (13+ yrs)</label>
+                <input type="number" class="form-control" value="1" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Children (2-12 yrs)</label>
+                <input type="number" class="form-control" value="0" min="0">
+            </div>
+
+            <div class="input-grp">
+                <label>Seat Type</label>
+                <select class="custom-select">
+                    <option value="standard">Standard</option>
+                    <option value="sleeper">Sleeper</option>
+                    <option value="luxury">Luxury</option>
+                </select>
+            </div>
+
+            <div class="input-grp">
+                <button type="button" class="btn btn-primary flight">Search Train Trips</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/train.js"></script>
+</body>
+</html>

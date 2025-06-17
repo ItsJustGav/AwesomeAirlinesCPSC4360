@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TravSync | Choose your mode of Travel</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(images/background.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .home-box {
+            background-color: rgba(0,0,0,0.6);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            width: 90%;
+             max-width: 500px;
+        }
+
+        .home-box h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .travel-options button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-airline {background-color: #3498db; color: white; }
+        .btn-bus { background-color: #2778ae; color: white; }
+        .btn-train { background-color: #2f22e6; color: white; }
+
+        .travel-options button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-box">
+        <h1>Welcome to TravSync</h1>
+        <p>Select your mode of travel:</p>
+        <div class="travel-options">
+            <button onclick="location.href='airline.html'" class="btn-airline">Airline</button>
+            <button onclick="location.href='bus.html'" class="btn-bus">Bus</button>
+            <button onclick="location.href='train.html'" class="btn-train">Train</button>
+        </div>
+    </div>
+    
+</body>
+</html>
