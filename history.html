@@ -1,23 +1,85 @@
-<ul id="historyList"></ul>
+<!DOCTYPE html>
+<html lang="en">
 
-<script>
-    firebase.auth().onAuthStateChanged(user => {
-        if (!user) return window.location.href = "login.html";
+<head>
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Travel History | TravSync</title>
 
-        const db = firebase.firestore();
-        const historyList = document.getElementById("historyList");
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(images/background.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            font-family: sans-serif;
+        }
 
-        db.collection("users")
-            .doc(user.uid)
-            .collection("history")
-            .get()
-            .then(snapshot => {
-                snapshot.forEach(doc => {
-                    const data = doc.data();
-                    const item = document.createElement("li");
-                    item.textContent = `${data.type}: ${data.from} → ${data.to} on ${new Date(data.date).toLocaleString()}`;
-                    historyList.appendChild(item);
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px);
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-item" onclick="location.href='home.html'">🏠 Home</div>
+        <div class="nav-item" onclick="location.href='history.html'">📓 TravLog</div>
+        <div class="nav-item" onclick="location.href='settings.html'">⚙️ Settings</div>
+    </nav>
+
+    <div class="page-content">
+        <h2>Your Travel History</h2>
+    </div>
+
+    <div id="history-list"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return window.location.href = "login.html";
+
+            const db = firebase.firestore();
+            const container = document.getElementById("history-list");
+
+            db.collection("history")
+                .doc(user.uid)
+                .collection("trips")
+                .orderBy("createdAt", "desc")
+                .get()
+                .then(snapshot => {
+                    if (snapshot.empty) {
+                        container.innerText = "No travel history found.";
+                        return;
+                    }
+
+                    snapshot.forEach(doc => {
+                        const trip = doc.data();
+                        const div = document.createElement("div");
+                        div.innerText = `${trip.mode.toUpperCase()} | ${trip.from} ➡️ ${trip.to} on ${trip.date}`;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(err => {
+                    console.error("Error fetching history:", err);
+                    container.innerText = "Failed to load history.";
                 });
-            });
-    });
-</script>
+        });
+    </script>
+</body>
+
+</html>

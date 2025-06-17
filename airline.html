@@ -7,6 +7,12 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="nav-item" onclick="location.href='home.html'">🏠 Home</div>
+        <div class="nav-item" onclick="location.href='history.html'">📓 TravLog</div>
+        <div class="nav-item" onclick="location.href='settings.html'">⚙️ Settings</div>
+    </nav>
+
     <div class="booking-box">
         <div class="radio-btns">
             <input type="radio" class="btn" name="check" checked="checked"><span>Roundtrip</span>
@@ -52,13 +58,17 @@
             </div>
 
         </div>
+        <button onclick="saveTestTrip()">Save Test Trip</button>
+        <button onclick="location.href='home.html'" class="home-btn">Home</button>
+        <button onclick="location.href='history.html'" class="travlog-btn">TravLog</button>
+
     </div>
 
     <script src="js/airline.js"></script>
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
     <!-- Shared Firebase Setup -->
     <script src="js/firebase-init.js"></script>
@@ -66,6 +76,35 @@
 
     <!-- Page-specific logic -->
     <script src="js/airline.js"></script>
+
+    <script>
+        function saveTestTrip() {
+            const user = firebase.auth().currentUser;
+            if (!user) {
+                alert("You're not logged in!");
+                return;
+            }
+
+            firebase.firestore()
+                .collection("history")
+                .doc(user.uid)
+                .collection("trips")
+                .add({
+                    mode: "airline",
+                    from: "New York",
+                    to: "Los Angeles",
+                    date: "2025-07-01",
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => alert("Test trip saved!"))
+                .catch(err => alert("Error saving: " + err.message))
+                .catch(err => {
+                    console.error("Error saving trip:", err);
+                    alert("Error Saving: " + err.message);
+                });
+        }
+    </script>
+
 
 </body>
 

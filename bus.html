@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="nav-item" onclick="location.href='home.html'">🏠 Home</div>
+        <div class="nav-item" onclick="location.href='history.html'">📓 TravLog</div>
+        <div class="nav-item" onclick="location.href='settings.html'">⚙️ Settings</div>
+    </nav>
+
     <div class="booking-box">
         <div class="radio-btns">
             <input type="radio" class="btn" name="check" checked="checked"><span>One-Way</span>
@@ -58,9 +64,9 @@
 
     <script src="js/bus.js"></script>
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
     <!-- Shared Firebase Setup -->
     <script src="js/firebase-init.js"></script>

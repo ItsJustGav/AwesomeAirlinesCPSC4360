@@ -2,6 +2,11 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/background.jpg);
     background-size: cover;
     background-position: center;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: white;
+    font-family: sans-serif;
 }
 
 .booking-box {
@@ -110,4 +115,30 @@ input::placeholder {
     background: #fff !important;
     color: black !important;
     transition: 0.5s;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    font-family: sans-serif;
+    border-bottom: 1px solid #555;
+}
+
+.nav-item {
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+.nav-item:hover {
+    background: #3498db;
 }
